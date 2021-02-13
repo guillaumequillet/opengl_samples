@@ -18,7 +18,7 @@ class ObjModel
         @vertices_texture.push infos.drop(1).map {|e| e.to_f}
       when 'vn'
         @vertices_normal.push infos.drop(1).map {|e| e.to_f}
-      when 'g'
+      when 'g', 'o'
         if infos.size > 1
           @current_object = infos.drop(1).join(' ')
           @faces[@current_object] ||= {

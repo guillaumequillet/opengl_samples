@@ -12,7 +12,7 @@ require_relative 'obj_model.rb'
 class Window < Gosu::Window
   def initialize
     super(640, 480, false)
-    @test = ObjModel.new('test.obj')
+    @test = ObjModel.new('blender_obj.obj')
   end
 
   def needs_cursor?; true; end
@@ -36,6 +36,9 @@ class Window < Gosu::Window
       glMatrixMode(GL_MODELVIEW)
       glLoadIdentity
       gluLookAt(0, 100, 100,  0, 0, 0,  0, 1, 0)
+
+      glScalef(10, 10, 10)
+      @angle ||= 0; @angle += 1; glRotatef(@angle, 1, 1, 0)
       @test.draw
     end
   end
